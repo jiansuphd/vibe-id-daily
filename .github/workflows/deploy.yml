@@ -1,12 +1,8 @@
 name: Deploy VibeID Daily
 
+# Inactive: automatic triggers removed at the repository owner's request.
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * *' # Daily at midnight
 
 # Allow the job to write to the repository for committing reports
 # AND to deploy to GitHub Pages
@@ -23,6 +19,7 @@ concurrency:
 
 jobs:
   build-and-deploy:
+    if: ${{ false }} # Inactive until explicitly re-enabled.
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
