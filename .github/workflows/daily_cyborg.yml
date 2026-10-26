@@ -1,8 +1,7 @@
 name: Daily Cyborg Report
 
+# Inactive: automatic triggers removed at the repository owner's request.
 on:
-  schedule:
-    - cron: '30 23 * * *' # 11:30 PM UTC (just before the midnight deploy)
   workflow_dispatch:
 
 permissions:
@@ -10,6 +9,7 @@ permissions:
 
 jobs:
   generate-report:
+    if: ${{ false }} # Inactive until explicitly re-enabled.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
